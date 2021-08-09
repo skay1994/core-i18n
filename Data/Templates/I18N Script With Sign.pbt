@@ -1,13 +1,13 @@
 Assets {
   Id: 5535230290739974817
-  Name: "Core I18N Locale"
+  Name: "I18N Script With Sign"
   PlatformAssetType: 5
   TemplateAsset {
     ObjectBlock {
       RootId: 11398899279623994485
       Objects {
         Id: 11398899279623994485
-        Name: "I18N Locale"
+        Name: "I18N Script With Sign"
         Transform {
           Scale {
             X: 1
@@ -1458,7 +1458,7 @@ Assets {
           }
           Overrides {
             Name: "cs:ShowTranslateID"
-            Bool: true
+            Bool: false
           }
           Overrides {
             Name: "cs:OfflineMode"
