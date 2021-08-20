@@ -37,7 +37,9 @@ function I18N:LoadTranslations(translationScript, locale)
     for _,v in pairs(translations) do 
         if not (_ == "I18N") then 
             local propFunc = require(translationScript:GetCustomProperty(_))
-            I18N.MergeTranslations(propFunc(I18N.transClass), locale)
+            if type(propFunc) == 'function' then
+                I18N.MergeTranslations(propFunc(I18N.transClass), locale)
+            end
         end
     end
 end
