@@ -2,6 +2,7 @@
     package: I18N Locale
     version: 1.0 
     created by: skay1994
+    github:
 
     This script adds multiple language management.
 
@@ -79,7 +80,7 @@
             Arguments:
                 locale (string): Locale selected by player, if equal at currentLocale, not send any event.
 
-        I18N:Debug(locale): Show all keys and translations in console. Use in I18NInit script for better.
+        I18N:Debug(locale): Show all keys and translations in console. Use at end of script file "I18NInit" for best result.
             Arguments:
                 locale (string) (default: nil): Show only translations for specified locale.
 
@@ -154,4 +155,46 @@
                 value (string): New value to translate
                 handler (function) (default: nil): Function to run after apply the translate, Ex: Using for reposition the component for better show this text on interface
 
+    How to use
+    -----------------------------------------------------------------------------------------------------------
+
+
+        Add a new language
+        -------------------------------------------------------------------------------------------------------
+
+        To add a new language, first create a folder in "ClientContext/Languages" with a code to a selected language.
+
+        The language code can be any string, I recommend using the default based on the Wikipedia page below.
+            https://en.wikipedia.org/wiki/Language_localisation#Language_tags_and_codes
+        
+        After create a folder, need create a new script file, the script name can be anything. I recomend using like "LocaleCode_LocaleScript.lua"
+        example: "ENUS_LocaleScript.lua" to make it easier to find the file.
+
+        On this script add a custom property with type "Asset Reference" and add the "I18N" base script.
+
+        See example bellow:
+        "
+        local I18N = require(script:GetCustomProperty("I18N"))
+
+        Events.Connect("I18N_MergingLanguages", function()
+            I18N:LoadTranslations(script)
+        end)
+        "
+
+        Now is time to create a new script file with localization content, the script name can be anything.
+
+        In this script you make a return with a anonymous function, which receives as a parameter an instance of the "Translations" class shown above.
+
+        See example bellow:
+
+        "
+        return function (traslations)
+            local LanguageSelector = traslations:Base("LanguageSelector")
+            LanguageSelector:Add("Title", "Change Locale")
+
+            return traslations:Get()
+        end
+        "
+
+        Now add this in script custom property "ENUS_LocaleScript" with type "Asset reference".    
 ]]
