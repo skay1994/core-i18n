@@ -2,7 +2,7 @@
     package: I18N Locale
     version: 1.0 
     created by: skay1994
-    github:
+    github: https://github.com/skay1994/core-i18n
 
     This script adds multiple language management.
 
