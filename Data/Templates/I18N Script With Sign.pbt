@@ -478,6 +478,14 @@ Assets {
               Value: "mc:ecanvascontenttype:dynamic"
             }
             Opacity: 1
+            IsHUD: true
+            CanvasWorldSize {
+              X: 1024
+              Y: 1024
+            }
+            TwoSided: true
+            TickWhenOffScreen: true
+            RedrawTime: 30
           }
           AnchorLayout {
             SelfAnchor {
@@ -2013,6 +2021,6 @@ Assets {
   Marketplace {
     Description: "This script adds multiple language management.\r\n\r\nCustom Values\r\n------------\r\n\tDefaultLocale:\r\n\t\ttype: String\r\n        default: enUS\r\n        description: The default language used for new users or not changed by player.\r\n\tShowTranslateID:\r\n\t\ttype: boolean\r\n        default: false\r\n\t\tdescription: Ignore all translations and show the key used for translation.\r\n\r\n    OfflineMode:\r\n\t\ttype: boolean\r\n        default: false\r\n        description: Run in offline mode, not save changed locale in player storage"
   }
-  SerializationVersion: 94
+  SerializationVersion: 95
   DirectlyPublished: true
 }

@@ -24,9 +24,9 @@ Assets {
             ReferencedAssets {
               Id: 5535230290739974817
             }
-			      ReferencedAssets {
-			        Id: 1441152954720069366
-			      }
+            ReferencedAssets {
+              Id: 1441152954720069366
+            }
           }
         }
       }
@@ -43,5 +43,5 @@ Assets {
     Version: "1.0.0"
     Description: "This script adds multiple language management.\r\n\r\nCustom Values\r\n------------\r\n\tDefaultLocale:\r\n\t\ttype: String\r\n        default: enUS\r\n        description: The default language used for new users or not changed by player.\r\n\tShowTranslateID:\r\n\t\ttype: boolean\r\n        default: false\r\n\t\tdescription: Ignore all translations and show the key used for translation.\r\n\r\n    OfflineMode:\r\n\t\ttype: boolean\r\n        default: false\r\n        description: Run in offline mode, not save changed locale in player storage"
   }
-  SerializationVersion: 94
+  SerializationVersion: 95
 }
