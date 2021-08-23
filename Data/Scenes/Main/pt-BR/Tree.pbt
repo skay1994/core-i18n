@@ -1,7 +1,7 @@
 Name: "pt-BR"
-RootId: 16748852939844977386
+RootId: 1832732932666821853
 Objects {
-  Id: 11410176454180442301
+  Id: 8023684927654469258
   Name: "PT_LanguageSelector"
   Transform {
     Location {
@@ -14,7 +14,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 16748852939844977386
+  ParentId: 1832732932666821853
   Collidable_v2 {
     Value: "mc:ecollisionsetting:inheritfromparent"
   }
@@ -30,14 +30,14 @@ Objects {
     }
   }
   InstanceHistory {
-    SelfId: 11410176454180442301
+    SelfId: 8023684927654469258
     SubobjectId: 17192795154144099702
-    InstanceId: 17664082884014637841
+    InstanceId: 15875439360129158903
     TemplateId: 1441152954720069366
   }
 }
 Objects {
-  Id: 17899205735182388703
+  Id: 677243285694956520
   Name: "PT_LocaleScript"
   Transform {
     Location {
@@ -50,7 +50,7 @@ Objects {
       Z: 1
     }
   }
-  ParentId: 16748852939844977386
+  ParentId: 1832732932666821853
   UnregisteredParameters {
     Overrides {
       Name: "cs:I18N"
@@ -80,9 +80,9 @@ Objects {
     }
   }
   InstanceHistory {
-    SelfId: 17899205735182388703
+    SelfId: 677243285694956520
     SubobjectId: 9846772975323127828
-    InstanceId: 17664082884014637841
+    InstanceId: 15875439360129158903
     TemplateId: 1441152954720069366
   }
 }

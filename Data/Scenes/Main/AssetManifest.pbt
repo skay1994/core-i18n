@@ -1,17 +1,4 @@
 Assets {
-  Id: 18203196042921113374
-  Name: "TestSharedStorage"
-  PlatformAssetType: 23
-  NetReferenceAsset {
-    NetReference {
-      Key: "9769a7bc572c4bce9dde655b1b2f2849"
-      Type {
-        Value: "mc:enetreferencetype:sharedpersistence"
-      }
-    }
-  }
-}
-Assets {
   Id: 17705737538679288724
   Name: "Frame Beveled 002"
   PlatformAssetType: 9
