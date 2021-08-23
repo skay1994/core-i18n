@@ -30,6 +30,22 @@
             default: false
             description: Run in offline mode, not save changed locale in player storage
 
+        ServerScript: I18nServerScript
+        ------------------------------------------------------------
+        This script contain basic configuration for server communication.
+
+        Custom Values
+        ------------
+        DefaultLocale:
+            type: String
+            default: enUS
+            description: The default language used for new users or not changed by player.
+
+        SharedStorageKey:
+            type: NetReference
+            default: nil
+            description: Use the shared storage to load and save locale selected by player.
+
     Events
     ----------------------------------------------------------------
 
