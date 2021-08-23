@@ -2,7 +2,7 @@ local I18N = {locales = {}}
 
 function I18N._Init(locale, showTranslateID, offline)
     I18N.locales = {}
-    I18N.currentLocale = locale
+    I18N:SetLocale(locale)
     I18N.isOffline = offline or false
     I18N.showTranslateID = showTranslateID or false
     Events.Broadcast("I18N_MergingLanguages")
@@ -14,19 +14,16 @@ function I18N.setTranslateClass(transClass)
 end
 
 function I18N.Update(locale)
-    if I18N.currentLocale == locale then return end
+    if I18N:GetLocale() == locale then return end
 
-    I18N.currentLocale = locale
+    I18N:SetLocale(locale)
+    
     Events.Broadcast("I18N_Loaded")
     UI.PrintToScreen(I18N:Translate("LanguageSelector.ChangedLocale"), Color.New(1, 0.9, 0.07, 1) --[[ Yellow ]])
 
     if not I18N.isOffline then
         Events.BroadcastToServer("I18N_PlayerUpdate", locale)
     end
-end
-
-function I18N:SetLocale(locale)
-    self["currentLocale"] = locale
 end
 
 function I18N:LoadTranslations(translationScript, locale)
@@ -51,10 +48,6 @@ function I18N.MergeTranslations(translations, locale)
         I18N.locales[locale][k] = v
     end
 end
-
-function I18N:GetLocale()
-    return self["currentLocale"]
-end
   
 function I18N:GetTranslateBase(base)
     local newi18n = I18N:Copy()
@@ -63,7 +56,7 @@ function I18N:GetTranslateBase(base)
 end
   
 function I18N:Translate(id, component, defaultPosition, locale)
-    local locale = locale or self:GetLocale()
+    local locale = locale or I18N:GetLocale()
     local trans, id = self:GetTranslate(id, locale)
     defaultPosition = defaultPosition or Vector3.New()
 
@@ -134,6 +127,14 @@ function I18N:Debug(locale)
             end
         end
     end
+end
+
+function I18N:SetLocale(locale)
+    I18N.currentLocale = locale
+end
+
+function I18N:GetLocale()
+    return I18N.currentLocale
 end
 
 function I18N:Copy()
