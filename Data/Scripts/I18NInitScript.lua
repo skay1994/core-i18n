@@ -7,7 +7,7 @@ local propOfflineMode = script:GetCustomProperty("OfflineMode")
 if not propOfflineMode then
     Events.Connect("I18N_Connect", function(locale)
         I18N.setTranslateClass(propTranslations)
-        I18N._Init(propDefaultLocale, propShowTranslateID, propOfflineMode)
+        I18N._Init(locale or propDefaultLocale, propShowTranslateID, propOfflineMode)
     end)
     
     function OnPlayerJoined(player)
