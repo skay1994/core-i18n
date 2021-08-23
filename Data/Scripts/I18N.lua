@@ -55,17 +55,23 @@ function I18N:GetTranslateBase(base)
     return newi18n
 end
   
-function I18N:Translate(id, component, defaultPosition, locale)
+function I18N:Translate(id, component, defaultPosition, locale, notTranslate)
+    local notTranslate = notTranslate or false
     local locale = locale or I18N:GetLocale()
     local trans, id = self:GetTranslate(id, locale)
-    defaultPosition = defaultPosition or Vector3.New()
+    local defaultPosition = defaultPosition or Vector3.New()
 
     if component then
-        component.text = trans
         component:SetPosition(defaultPosition)
 
+        if not notTranslate then
+            if type(component.text) == "string" then
+                component.text = trans
+            end
+        end
+
         if I18N.HasComponentHandler(id, locale) then
-            I18N.RunComponentHandler(id, locale)(component)
+            I18N.RunComponentHandler(id, locale)(component, trans, id, defaultPosition)
         end
     end
     
