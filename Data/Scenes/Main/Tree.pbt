@@ -19,6 +19,7 @@ Objects {
   ChildIds: 14713340454944924967
   ChildIds: 10005074784157121906
   ChildIds: 14982843161775482339
+  ChildIds: 8843610665275660079
   ChildIds: 17664082884014637841
   UnregisteredParameters {
   }
@@ -59,6 +60,38 @@ Objects {
           Name: "Name"
           String: "I18N Script"
         }
+      }
+    }
+    TemplateAsset {
+      Id: 1441152954720069366
+    }
+  }
+}
+Objects {
+  Id: 8843610665275660079
+  Name: "Core I18N Locale"
+  Transform {
+    Scale {
+      X: 1
+      Y: 1
+      Z: 1
+    }
+  }
+  ParentId: 4781671109827199097
+  Collidable_v2 {
+    Value: "mc:ecollisionsetting:inheritfromparent"
+  }
+  Visible_v2 {
+    Value: "mc:evisibilitysetting:inheritfromparent"
+  }
+  TemplateInstance {
+    ParameterOverrideMap {
+      key: 11398899279623994485
+      value {
+        Overrides {
+          Name: "Name"
+          String: "I18N Script With Sign"
+        }
         Overrides {
           Name: "Position"
           Vector {
@@ -72,7 +105,7 @@ Objects {
       }
     }
     TemplateAsset {
-      Id: 1441152954720069366
+      Id: 5535230290739974817
     }
   }
 }

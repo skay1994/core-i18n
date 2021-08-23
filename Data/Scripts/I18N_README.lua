@@ -181,9 +181,6 @@
         end)
         "
 
-        Defining translation Strings
-        -------------------------------------------------------------------------------------------------------
-
         Now is time to create a new script file with localization content, the script name can be anything.
 
         In this script you make a return with a anonymous function, which receives as a parameter an instance of the "Translations" class shown above.
@@ -199,33 +196,5 @@
         end
         "
 
-        Now add this in script custom property "ENUS_LocaleScript" with type "Asset reference".
-
-        Defining translation Strings
-        -------------------------------------------------------------------------------------------------------
-
-        On this script add a custom property with type "Asset Reference" and add the "I18N" base script.
-
-        The event "I18N_Loaded" is fired when the locale is updated or loaded.
-
-        To use a translated string, create a new script and attach on CoreObject like a children.
-
-        `
-        Events.Connect("I18N_Loaded", function()
-            local selector = I18N:GetTranslateBase("LanguageSelector")
-            selector:Translate("Title", propTitle)
-            -- or
-            locale text = selector:Translate("Title")
-            script.parent.text = text
-        end)
-        `
-        Or by custom property.
-        `
-        Events.Connect("I18N_Loaded", function()
-            I18N:Translate("LanguageSelector.Title", propTitle)
-            -- or 
-            local text = I18N:Translate("LanguageSelector.Title")
-            propTitle.text = text
-        end)
-        `
+        Now add this in script custom property "ENUS_LocaleScript" with type "Asset reference".    
 ]]

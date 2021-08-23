@@ -153,6 +153,12 @@ Assets {
               Id: 4474865855365257481
             }
           }
+          Overrides {
+            Name: "cs:EN_Signs"
+            AssetReference {
+              Id: 1907008186733941478
+            }
+          }
         }
         Collidable_v2 {
           Value: "mc:ecollisionsetting:inheritfromparent"
@@ -256,6 +262,12 @@ Assets {
             Name: "cs:LanguageSelector"
             AssetReference {
               Id: 5260746607835832122
+            }
+          }
+          Overrides {
+            Name: "cs:PT_Signs"
+            AssetReference {
+              Id: 11128653016138438756
             }
           }
         }

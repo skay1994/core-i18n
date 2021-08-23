@@ -27,6 +27,9 @@ Assets {
             ReferencedAssets {
               Id: 1441152954720069366
             }
+			      ReferencedAssets {
+			        Id: 1441152954720069366
+			      }
           }
         }
       }
