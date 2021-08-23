@@ -96,11 +96,13 @@ Core component for all functions for languages
 
 ### Translating
 
-- I18N:Translate(id, component, defaultPosition, locale): Return or set translate in component. If not passed component, return translated string.
-    - id (string): The translate key
-    - component (CoreComponent) (default: nil): Any core component with ".text" property (like a World Text)
+- I18N:Translate(id, component, defaultPosition, locale, notTranslate): Return or set translate in component. If not passed component, return translated string.
+    - id (string): The translation key
+    - component (CoreComponent) (default: nil): Any core component.
+      - The script will search for the ".text" property (World Text component has this property for example) if this property doesn't exist, nothing happens
     - defaultPosition (Vector3) (default: Vector3.New(0,0,0)): Default position to set component, after translation, if this translation key do not have a custom handler
-    - locale: Force location to prevent changed by player configuration. Example:
+    - locale (string) (default: nil): Force location to prevent changed by player configuration.
+    - notTranslate (boolean) (default: false):Not try to translate the component received.
 ```lua
 I18N:Translate("LanguageSelector.OpenMenuDesc", script.parent)
 ```
@@ -138,7 +140,13 @@ I18N:Translate("LanguageSelector.Title", script.parent)
 - Translations:Add(key, value, handler): Add translation to specific key.
     - key (string): Key to translate
     - value (string): New value to translate
-    - handler (function) (default: nil): Function to run after apply the translate, Ex: Using for reposition the component for better show this text on interface
+    - handler (function) (default: nil): Function to run after apply the translation, Ex: Using for reposition the component for better show this text on interface
+      - The handler only execute if existing a component
+      - This handler has this parameters: (component, trans, id, defaultPosition)
+        - component: The component that will receive the translation
+        - translationString: the string already translated
+        - id: The key string used for the translation
+        - defaultPosition: The default component position for this translation string
 
 # How to use
 
@@ -168,6 +176,18 @@ In this script you make a return with a anonymous function, which receives as a 
 return function (traslations)
     local LanguageSelector = traslations:Base("LanguageSelector")
     LanguageSelector:Add("Title", "Change Locale")
+    
+    return traslations:Get()
+end
+```
+Or add a function handler to execute something after translation.
+```lua
+return function (traslations)
+    local LanguageSelector = traslations:Base("LanguageSelector")
+    LanguageSelector:Add("Title", "Change Locale", function(component, trans, id, defaultPosition)
+        local newPosition = defaultPosition + Vector3.New(0, 50, 75):
+        component.SetPosition(newPosition)
+    end)
     
     return traslations:Get()
 end
